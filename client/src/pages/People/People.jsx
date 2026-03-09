@@ -3,18 +3,22 @@ import MeetSection from "@/pages/People/sections/MeetSection.jsx";
 
 import styles from "./People.module.css";
 
-import personImg from "@/assets/images/people/henrich2.png";
+import personImg1 from "@/assets/images/people/henrich.webp";
+import personImg2 from "@/assets/images/people/ashvin.webp";
+import personImg3 from "@/assets/images/people/ranjith.webp";
+import personImg4 from "@/assets/images/people/bency.webp";
+import personImg5 from "@/assets/images/people/moorthy.webp";
+import personImg6 from "@/assets/images/people/esther.webp";
+import personImg7 from "@/assets/images/people/reshma.webp";
 
 const people = [
-  { id: 1, name: "Henrich P", role: "Visionary", image: personImg },
-  { id: 2, name: "Ashvin V S", role: "Chief Operating Officer", image: personImg },
-  { id: 3, name: "Ranjit Pratap Singh N", role: "Head of Business", image: personImg },
-  { id: 4, name: "Bency P", role: "Operations Manager", image: personImg },
-  { id: 5, name: "Henrich P", role: "Founder", image: personImg },
-  { id: 6, name: "Henrich P", role: "Founder", image: personImg },
-  { id: 7, name: "Henrich P", role: "Founder", image: personImg },
-  { id: 8, name: "Henrich P", role: "Founder", image: personImg },
-  { id: 9, name: "Henrich P", role: "Founder", image: personImg },
+  { id: 1, name: "Henrich", role: "Visionary", image: personImg1 },
+  { id: 2, name: "Ashvin", role: "Chief Operating Officer", image: personImg2 },
+  { id: 3, name: "Ranjit Pratap Singh", role: "Head of Business", image: personImg3 },
+  { id: 4, name: "Bency", role: "Operations Manager", image: personImg4 },
+  { id: 5, name: "Moorthy", role: "AI Product Developer", image: personImg5 },
+  { id: 6, name: "Esther", role: "HR Executive", image: personImg6 },
+  { id: 7, name: "Reshma", role: "Developer", image: personImg7 },
 ];
 
 const People = () => {

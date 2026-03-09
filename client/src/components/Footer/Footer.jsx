@@ -68,10 +68,10 @@ export default function Footer() {
             <ul className={styles.links}>
               <li>{sectionLink("about", "About")}</li>
               <li>{sectionLink("verticals", "Verticals")}</li>
-              {/* <li>
+              <li>
                 <Link to="/people">People</Link>
-              </li> */}
-              <li>{sectionLink("capabilities", "People")}</li>
+              </li>
+              {/* <li>{sectionLink("capabilities", "People")}</li> */}
               <li>{sectionLink("connect", "Careers")}</li>
               <li>{sectionLink("connect", "Contact")}</li>
             </ul>

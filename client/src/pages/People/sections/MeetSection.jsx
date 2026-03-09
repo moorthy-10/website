@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./MeetSection.module.css";
 import ArrowIcon from "@/components/ui/ArrowIcon.jsx";
 
-import s1_1 from "@/assets/images/Meet.webp";
+import s1_1 from "@/assets/images/capabilities/genz.webp";
 
 export default function Meet() {
 

@@ -65,7 +65,7 @@ export default function FAQ() {
           </p>
 
           {/* onClick={() => navigate("/people")} */}
-          <button className={styles.heroBtn}>
+          <button onClick={() => navigate("/people")} className={styles.heroBtn}>
             MEET THE TEAM{" "}
             <span>
               <ArrowIcon />

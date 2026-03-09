@@ -100,7 +100,7 @@ export default function Navbar() {
           </button>
         </li>
 
-        {/* <li>
+        <li>
           <Link
             to="/people"
             onClick={() => setOpen(false)}
@@ -108,9 +108,9 @@ export default function Navbar() {
           >
             People
           </Link>
-        </li> */}
+        </li>
 
-        <li>
+        {/* <li>
           <button
             onClick={() => {
               handleSectionClick("capabilities");
@@ -122,7 +122,7 @@ export default function Navbar() {
           >
             People
           </button>
-        </li>
+        </li> */}
 
         {/* Navigate to # of same page. So <a> is used. */}
         <li>

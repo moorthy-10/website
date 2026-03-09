@@ -4,10 +4,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./CapabilitiesSection.module.css";
 import ArrowIcon from "@/components/ui/ArrowIcon.jsx";
 
-import s1_1 from "@/assets/images/s1_1.png";
-import s1_2 from "@/assets/images/s1_4.png";
-import s1_3 from "@/assets/images/s1_3.png";
-import s1_4 from "@/assets/images/s1_2.png";
+import s1_1 from "@/assets/images/capabilities/genz.webp";
+import s1_2 from "@/assets/images/capabilities/launchpad.webp";
+import s1_3 from "@/assets/images/capabilities/ai.webp";
+import s1_4 from "@/assets/images/capabilities/brand.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +21,7 @@ export default function CapabilitiesSection() {
       label: "OUR CAPABILITIES",
       heading:
         "We’re a Gen Z team of strategists, designers and AI builders. We blend bold branding, smart automation and future-ready upskilling to help you launch what’s next.",
-      list: ["GenLab.Brand Studio", "GenLab.AI Forge", "GenLab.Launchpad"],
+      list: ["GenLab.Launchpad", "GenLab.AI Forge", "GenLab.Brand Studio" ],
       showButton: false,
       clickableList: true,
     },
