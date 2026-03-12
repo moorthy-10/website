@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import BackgroundGlow from '@/components/BackgroundGlow';
 import InputField from '@/components/InputField';
 import Button from '@/components/Button';
@@ -8,6 +8,7 @@ import logoWithSparkle from "@/assets/logo.png";
 import logoIcon from "@/assets/logo-white.svg";
 
 const VerifyCertificate = () => {
+    const navigate = useNavigate();
     // Steps: 'request' | 'verified'
     const [step, setStep] = useState('request');
     const [certificateId, setCertificateId] = useState('');
@@ -134,7 +135,7 @@ const VerifyCertificate = () => {
                             <InputField label="Certificate ID" value={verifiedData.certId} readOnly />
 
                             <div className="pt-10 sm:pt-14">
-                                <Button variant="primary" onClick={() => setStep('request')}>
+                                <Button variant="primary" onClick={() => navigate('/')}>
                                     Done
                                 </Button>
                             </div>
