@@ -19,7 +19,7 @@ const InputField = ({ label, placeholder, value, onChange, type = "text", id, re
                 readOnly={readOnly}
                 {...props}
                 className={`
-                    w-full px-6 py-[18px] rounded-full text-white placeholder:text-gray-500 text-[16px] outline-none transition-all
+                    w-full px-5 sm:px-6 py-[14px] sm:py-[18px] rounded-full text-white placeholder:text-gray-500 text-[15px] sm:text-[16px] outline-none transition-all
                     ${readOnly
                         ? 'bg-white/[0.05] border border-white/20'
                         : 'bg-white/[0.02] border border-white/20 focus:bg-white/[0.04]'

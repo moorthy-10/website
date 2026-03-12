@@ -73,7 +73,7 @@ const VerifyCertificate = () => {
     };
 
     return (
-        <div className="relative min-h-screen flex flex-col items-center justify-center p-5 sm:p-8 md:p-12 font-['Clash Display',sans-serif] overflow-x-hidden">
+        <div className="relative min-h-screen flex flex-col items-center justify-center p-4 sm:p-8 md:p-12 font-['Clash Display',sans-serif] overflow-x-hidden">
             <BackgroundGlow />
 
             <AnimatePresence mode="wait">
@@ -86,19 +86,19 @@ const VerifyCertificate = () => {
                         exit="exit"
                         className="w-full max-w-[480px] z-10 text-center"
                     >
-                        <div className="flex justify-center mb-8 sm:mb-12">
+                        <div className="flex justify-center mb-6 sm:mb-12">
                             <Link to="/">
-                                <img src={logoWithSparkle} alt="GenLab" className="h-[40px] sm:h-[50px] w-auto" />
+                                <img src={logoWithSparkle} alt="GenLab" className="h-[36px] sm:h-[50px] w-auto" />
                             </Link>
                         </div>
 
-                        <div className="mb-10 sm:mb-16 px-4">
-                            <h2 className="text-[24px] sm:text-[36px] leading-tight sm:leading-[46px] font-medium font-clash text-white">
+                        <div className="mb-8 sm:mb-16 px-4">
+                            <h2 className="text-[22px] sm:text-[36px] leading-tight sm:leading-[46px] font-medium font-clash text-white">
                                 Verify Your Certificate
                             </h2>
                         </div>
 
-                        <form onSubmit={handleVerify} className="flex flex-col gap-6 sm:gap-8 px-4 sm:px-10">
+                        <form onSubmit={handleVerify} className="flex flex-col gap-5 sm:gap-8 px-2 sm:px-10">
                             <InputField
                                 label="Certificate ID"
                                 id="cert-id"
@@ -151,12 +151,12 @@ const VerifyCertificate = () => {
                         exit="exit"
                         className="w-full max-w-[520px] z-10 text-center"
                     >
-                        <div className="flex justify-center mb-8 sm:mb-10">
-                            <img src={logoWithSparkle} alt="GenLab" className="h-[35px] sm:h-[45px] w-auto" />
+                        <div className="flex justify-center mb-6 sm:mb-10">
+                            <img src={logoWithSparkle} alt="GenLab" className="h-[32px] sm:h-[45px] w-auto" />
                         </div>
 
-                        <div className="mb-16 sm:mb-26 px-4">
-                            <h2 className="text-[28px] sm:text-[42px] leading-tight font-medium text-white">
+                        <div className="mb-10 sm:mb-26 px-4">
+                            <h2 className="text-[24px] sm:text-[42px] leading-tight font-medium text-white">
                                 Certificate Verified
                             </h2>
                         </div>
@@ -166,14 +166,14 @@ const VerifyCertificate = () => {
 
                             <InputField label="Program" value={verifiedData?.program || ''} readOnly />
 
-                            <div className="flex flex-col sm:flex-row gap-6 sm:gap-5">
+                            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
                                 <InputField label="Start Date" value={verifiedData?.startDate || ''} readOnly />
                                 <InputField label="End Date" value={verifiedData?.endDate || ''} readOnly />
                             </div>
 
                             <InputField label="Certificate ID" value={verifiedData?.certId || ''} readOnly />
 
-                            <div className="pt-10 sm:pt-14">
+                            <div className="pt-8 sm:pt-14">
                                 <Button variant="primary" onClick={() => navigate('/')}>
                                     Done
                                 </Button>
