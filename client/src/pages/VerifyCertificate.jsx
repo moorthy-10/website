@@ -208,7 +208,19 @@ const VerifyCertificate = () => {
 
       </div>
 
-
+      {/* Footer - Only show on request step */}
+      {step === 'request' && (
+        <motion.footer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5 }}
+          transition={{ delay: 0.8, duration: 1 }}
+          className="footer"
+        >
+          <p>
+            By continuing, you agree to our Terms of Service and Privacy Policy.
+          </p>
+        </motion.footer>
+      )}
 
     </div>
   );
