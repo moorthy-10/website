@@ -193,7 +193,7 @@ const VerifyCertificate = () => {
                 <InputField label="Certificate ID" value={verifiedData?.certId || ''} readOnly />
 
                 <div className="verified-btn-wrapper">
-                  <Button variant="primary" onClick={handleDone}>
+                  <Button variant="primary" onClick={handleDone} className="done-btn">
                     Done
                   </Button>
                 </div>

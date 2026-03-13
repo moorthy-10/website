@@ -221,7 +221,7 @@
 
 /* Styling for error messages */
 .error-message {
-  color: #ff54cf;
+  color: #e44b4b;
   font-size: 0.875rem;
   margin-top: 0.5rem;
   font-weight: 500;
@@ -241,6 +241,27 @@
   .verified-btn-wrapper {
     padding-top: 2.5rem;
   }
+}
+
+/* Specific styling for the Done button as per Figma request */
+.done-btn {
+  width: 100% !important;
+  max-width: 460px !important;
+  height: 52px !important;
+  border-radius: 12px !important;
+  background-color: #F0F0F0 !important;
+  color: #000000 !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  transform: rotate(0deg);
+  opacity: 1;
+  gap: 10px !important;
+  padding: 0 22px !important; /* Horiz padding 22px as per figma, vertical auto centered by flex */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: none !important;
 }
 
 /* Sticky footer at the bottom of the viewport */
