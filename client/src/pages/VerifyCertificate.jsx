@@ -151,7 +151,8 @@ const VerifyCertificate = () => {
                   <Button
                     type="submit"
                     disabled={!isRequestValid || loading}
-                    variant="secondary"
+                    variant="primary"
+                    className="verify-btn"
                   >
                     {loading ? 'Verifying...' : 'Verify Certificate'}
                   </Button>
