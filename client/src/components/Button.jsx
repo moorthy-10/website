@@ -1,17 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import './Button.css';
 
 const Button = ({ children, onClick, disabled = false, type = "button", className = "", variant = "secondary" }) => {
 
     // Primary: Solid white/light-gray background, dark text
     // Secondary: Hollow, white border, white text (current)
     const variants = {
-        primary: disabled
-            ? 'bg-white/20 text-white/40 cursor-not-allowed'
-            : 'bg-[#F2F2F2] text-[#070707] hover:bg-white',
-        secondary: disabled
-            ? 'opacity-30 cursor-not-allowed border border-white/40 text-white'
-            : 'border border-white/40 text-white hover:border-white hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]'
+        primary: 'btn-primary',
+        secondary: 'btn-secondary',
     };
 
     return (
@@ -21,17 +18,11 @@ const Button = ({ children, onClick, disabled = false, type = "button", classNam
             type={type}
             onClick={onClick}
             disabled={disabled}
-            className={`
-                w-full py-[18px] rounded-full font-medium text-[16px]
-                transition-all duration-300
-                flex items-center justify-center gap-2
-                ${variants[variant]}
-                ${className}
-            `}
+            className={`custom-btn ${variants[variant]} ${className}`}
         >
             {children}
         </motion.button>
     );
 };
 
-export default Button;
+export default React.memo(Button);

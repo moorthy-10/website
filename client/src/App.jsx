@@ -7,18 +7,19 @@ import Home from "@/pages/Home/Home.jsx";
 import People from "@/pages/People/People.jsx";
 import VerifyCertificate from "@/pages/VerifyCertificate.jsx";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import "./App.css";
 
 function App() {
+  const location = useLocation();
+  const isVerifyPage = location.pathname === "/verify-certificate";
+
   return (
     <>
-      {/* <LandingHero /> */}
-
       <ScrollToTop />
 
-      <Navbar />
+      {!isVerifyPage && <Navbar />}
 
       <div className="page-wrapper">
         <Routes>
@@ -28,7 +29,7 @@ function App() {
         </Routes>
       </div>
 
-      <Footer />
+      {!isVerifyPage && <Footer />}
     </>
   );
 }

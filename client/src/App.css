@@ -16,7 +16,7 @@
 .page-wrapper {
   position: relative;
   z-index: 10; /* Above footer */
-  background: #101010 /* Important; change to white for footer bug fixes */
+  background: #101010; /* Important; change to white for footer bug fixes */
 }
 
 button, h1, h2, h3, h4, input, textarea, select {

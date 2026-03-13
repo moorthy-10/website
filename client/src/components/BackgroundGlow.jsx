@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
+import './BackgroundGlow.css';
 
 const BackgroundGlow = ({ speed = 1, interactivity = 0.05 }) => {
     // Manual Mouse Control Values
@@ -29,9 +30,9 @@ const BackgroundGlow = ({ speed = 1, interactivity = 0.05 }) => {
     return (
         <motion.div
             style={{ x: mouseX, y: mouseY }}
-            className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-[#000000]"
+            className="glow-container"
         >
-            <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+            <div className="glow-wrapper">
 
                 {/* Layer 3: Ambient Glow */}
                 <motion.div
@@ -46,9 +47,9 @@ const BackgroundGlow = ({ speed = 1, interactivity = 0.05 }) => {
                         repeat: Infinity,
                         ease: "linear"
                     }}
-                    className="absolute w-[180%] h-[180%] blur-[250px] rounded-full mix-blend-screen bg-radial-glow-ambient"
+                    className="glow-layer ambient-glow"
                     style={{
-                        background: 'radial-gradient(circle, rgba(163, 230, 53, 0.25) 0%, rgba(163, 230, 53, 0.05) 65%, transparent 90%)'
+                        willChange: 'transform'
                     }}
                 />
 
@@ -65,9 +66,9 @@ const BackgroundGlow = ({ speed = 1, interactivity = 0.05 }) => {
                         repeat: Infinity,
                         ease: "linear"
                     }}
-                    className="absolute w-[120%] h-[120%] blur-[160px] rounded-full mix-blend-screen"
+                    className="glow-layer main-glow"
                     style={{
-                        background: 'radial-gradient(circle, rgba(163, 230, 53, 0.45) 0%, rgba(163, 230, 53, 0.15) 55%, transparent 85%)'
+                        willChange: 'transform'
                     }}
                 />
 
@@ -84,9 +85,9 @@ const BackgroundGlow = ({ speed = 1, interactivity = 0.05 }) => {
                         repeat: Infinity,
                         ease: "linear"
                     }}
-                    className="absolute w-[70%] h-[75%] blur-[80px] rounded-full mix-blend-screen"
+                    className="glow-layer core-glow"
                     style={{
-                        background: 'radial-gradient(circle, rgba(163, 230, 53, 0.95) 0%, rgba(163, 230, 53, 0.45) 50%, transparent 80%)'
+                        willChange: 'transform'
                     }}
                 />
 
@@ -102,9 +103,9 @@ const BackgroundGlow = ({ speed = 1, interactivity = 0.05 }) => {
                         repeat: Infinity,
                         ease: "linear"
                     }}
-                    className="absolute w-[60%] h-[60%] blur-[160px] rounded-full mix-blend-screen"
+                    className="glow-layer secondary-glow"
                     style={{
-                        background: 'radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 80%)'
+                        willChange: 'transform'
                     }}
                 />
             </div>
@@ -112,4 +113,4 @@ const BackgroundGlow = ({ speed = 1, interactivity = 0.05 }) => {
     );
 };
 
-export default BackgroundGlow;
+export default React.memo(BackgroundGlow);
