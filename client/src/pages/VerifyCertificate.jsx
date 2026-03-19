@@ -7,6 +7,216 @@ import Button from '@/components/Button';
 import logoWithSparkle from "@/assets/logo.png";
 import './VerifyCertificate.css';
 
+const VerifiedTick = () => {
+  const sparkleCount = 8;
+  return (
+    <div className="verified-tick-container">
+      <div className="glow-pulse" />
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <motion.circle
+          cx="50"
+          cy="50"
+          r="44"
+          fill="rgba(50, 205, 50, 0.1)"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+        />
+        <motion.circle
+          cx="50"
+          cy="50"
+          r="44"
+          stroke="#32CD32"
+          strokeWidth="4"
+          strokeLinecap="round"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+        />
+        <motion.path
+          d="M32 52L44 64L68 40"
+          stroke="#32CD32"
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          initial={{ pathLength: 0, scale: 0.5, opacity: 0 }}
+          animate={{ pathLength: 1, scale: 1, opacity: 1 }}
+          transition={{ 
+            pathLength: { duration: 0.3, delay: 0.6 },
+            scale: { type: "spring", stiffness: 400, damping: 10, delay: 0.6 },
+            opacity: { duration: 0.1, delay: 0.6 }
+          }}
+        />
+      </svg>
+      
+      {/* Modern Sparkle Pop */}
+      {Array.from({ length: sparkleCount }).map((_, i) => (
+        <motion.div
+          key={i}
+          initial={{ scale: 0, opacity: 0, x: 0, y: 0 }}
+          animate={{ 
+            scale: [0, 1, 0], 
+            opacity: [0, 1, 0],
+            x: Math.cos((i * (360 / sparkleCount)) * Math.PI / 180) * 80,
+            y: Math.sin((i * (360 / sparkleCount)) * Math.PI / 180) * 80
+          }}
+          transition={{ delay: 0.9, duration: 0.8, ease: "easeOut" }}
+          style={{
+            position: 'absolute',
+            width: 4,
+            height: 4,
+            backgroundColor: '#32CD32',
+            borderRadius: '50%',
+            boxShadow: '0 0 10px #32CD32'
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
+const ErrorMark = () => {
+  const sparkleCount = 8;
+  return (
+    <div className="verified-tick-container error-mark-container">
+      <div className="glow-pulse error-glow" />
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <motion.circle
+          cx="50"
+          cy="50"
+          r="44"
+          fill="rgba(228, 75, 75, 0.1)"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+        />
+        <motion.circle
+          cx="50"
+          cy="50"
+          r="44"
+          stroke="#e44b4b"
+          strokeWidth="4"
+          strokeLinecap="round"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+        />
+        <motion.path
+          d="M35 35L65 65M65 35L35 65"
+          stroke="#e44b4b"
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          initial={{ pathLength: 0, scale: 0.5, opacity: 0 }}
+          animate={{ pathLength: 1, scale: 1, opacity: 1 }}
+          transition={{ 
+            pathLength: { duration: 0.3, delay: 0.6 },
+            scale: { type: "spring", stiffness: 400, damping: 10, delay: 0.6 },
+            opacity: { duration: 0.1, delay: 0.6 }
+          }}
+        />
+      </svg>
+      
+      {/* Red Sparkle Pop */}
+      {Array.from({ length: sparkleCount }).map((_, i) => (
+        <motion.div
+          key={i}
+          initial={{ scale: 0, opacity: 0, x: 0, y: 0 }}
+          animate={{ 
+            scale: [0, 1, 0], 
+            opacity: [0, 1, 0],
+            x: Math.cos((i * (360 / sparkleCount)) * Math.PI / 180) * 80,
+            y: Math.sin((i * (360 / sparkleCount)) * Math.PI / 180) * 80
+          }}
+          transition={{ delay: 0.9, duration: 0.8, ease: "easeOut" }}
+          style={{
+            position: 'absolute',
+            width: 4,
+            height: 4,
+            backgroundColor: '#e44b4b',
+            borderRadius: '50%',
+            boxShadow: '0 0 10px #e44b4b'
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
+const VerifyingState = ({ isSuccess }) => {
+  const [isScanning, setIsScanning] = React.useState(true);
+
+  React.useEffect(() => {
+    // Show scanner for at least 1.5s
+    const timer = setTimeout(() => {
+        // Only stop scanning if we have a result
+        if (isSuccess !== null) {
+            setIsScanning(false);
+        }
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, [isSuccess]);
+
+  // If scanning finished and we still don't have isSuccess (slow network),
+  // we effectively wait for isSuccess to become non-null.
+  // Actually, we'll just check it in the render.
+  const showResult = !isScanning && isSuccess !== null;
+
+  return (
+    <motion.div
+      key="verifying"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0 }}
+      className="verifying-card"
+    >
+      <div className="logo-verified">
+        <img src={logoWithSparkle} alt="GenLab" className="logo-img" />
+      </div>
+
+      <AnimatePresence mode="wait">
+        {!showResult ? (
+          <motion.div
+            key="scanning"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="scanning-container-wrapper"
+          >
+            <div className="scanning-container">
+              <div className="pulse-ring" />
+              <div className="scanning-line" />
+            </div>
+            <h2 className="verifying-text">Checking Database</h2>
+            <p className="verifying-subtext">Searching for certificate record...</p>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="result-view"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="tick-success-wrapper"
+          >
+            {isSuccess ? (
+              <>
+                <VerifiedTick />
+                <h2 className="verifying-text" style={{ color: '#32CD32' }}>Match Found!</h2>
+                <p className="verifying-subtext">Certificate authenticity confirmed.</p>
+              </>
+            ) : (
+              <>
+                <ErrorMark />
+                <h2 className="verifying-text" style={{ color: '#e44b4b' }}>Verification Failed</h2>
+                <p className="verifying-subtext">No record found with these details.</p>
+              </>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
 const VerifyCertificate = () => {
   const navigate = useNavigate();
 
@@ -16,6 +226,7 @@ const VerifyCertificate = () => {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [verifiedData, setVerifiedData] = useState(null);
+  const [isSuccess, setIsSuccess] = useState(null);
 
   const isRequestValid = certificateId.trim().length > 0 && email.trim().length > 0;
 
@@ -23,8 +234,12 @@ const VerifyCertificate = () => {
     e.preventDefault();
     if (!isRequestValid) return;
 
-    setLoading(true);
     setErrorMessage('');
+    setIsSuccess(null);
+    
+    // START ANIMATION IMMEDIATELY
+    setStep('verifying');
+    setLoading(true);
 
     try {
       const scriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
@@ -47,14 +262,25 @@ const VerifyCertificate = () => {
           certId: result.data.certId
         });
 
-        setStep('verified');
+        setIsSuccess(true);
+        setTimeout(() => {
+          setStep('verified');
+        }, 3200); // Wait for scan + tick animation
       } else {
+        setIsSuccess(false);
         setErrorMessage(result.message || 'Certificate not found. Please check your details.');
+        setTimeout(() => {
+          setStep('request');
+        }, 3200); 
       }
 
     } catch (error) {
       console.error('Verification error:', error);
+      setIsSuccess(false);
       setErrorMessage('An error occurred during verification. Please try again later.');
+      setTimeout(() => {
+        setStep('request');
+      }, 3200);
     } finally {
       setLoading(false);
     }
@@ -160,6 +386,10 @@ const VerifyCertificate = () => {
 
               </form>
             </motion.div>
+          )}
+
+          {step === 'verifying' && (
+            <VerifyingState isSuccess={isSuccess} />
           )}
 
           {step === 'verified' && (
