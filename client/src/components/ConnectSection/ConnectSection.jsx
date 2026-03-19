@@ -77,7 +77,7 @@ const ConnectSection = () => {
     setStatus("loading");
 
     try {
-      await fetch(import.meta.env.VITE_GOOGLE_SCRIPT_URL, {
+      await fetch(import.meta.env.VITE_USER_DATA_COLLECTION_URL, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },

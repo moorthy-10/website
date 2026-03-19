@@ -242,7 +242,7 @@ const VerifyCertificate = () => {
     setLoading(true);
 
     try {
-      const scriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+      const scriptUrl = import.meta.env.VITE_CERTIFICATE_VERIFY_URL;
 
       const params = new URLSearchParams({
         action: 'verifyCertificate',
